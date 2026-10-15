@@ -1,319 +1,184 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Little Garden of Love 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Garden Made of Love 💗</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;text-align:center;
+ font-family:Georgia,serif;color:#922653;
+ background:linear-gradient(145deg,#fff8fc,#ffd3e6,#fff0f7);
+ overflow-x:hidden
 }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
-  text-align: center;
-  font-family: Georgia, serif;
-  color: #922653;
-  background: linear-gradient(160deg, #fff5fa, #ffd4e6, #ffecf5);
+header{padding:32px 12px 8px}
+h1{font-size:clamp(36px,8vw,58px);margin:12px 0;text-shadow:0 3px 15px #ff9ec9}
+p{line-height:1.7}
+.subtitle{max-width:520px;margin:auto;padding:0 10px}
+.garden{
+ width:min(96%,720px);margin:20px auto;padding:18px 8px 25px;
+ background:#ffffffb8;border:1px solid white;border-radius:28px;
+ box-shadow:0 15px 45px #b92d6920
 }
-
-header {
-  padding: 35px 15px 10px;
+svg{display:block;width:100%;height:auto}
+.flower{transform-box:fill-box;transform-origin:center;animation:bloom 2s ease-in-out infinite alternate}
+@keyframes bloom{from{transform:scale(.86)}to{transform:scale(1.12)}}
+button{
+ border:0;border-radius:30px;padding:14px 20px;margin:7px;
+ background:linear-gradient(135deg,#ff579b,#b52a68);
+ color:white;font-size:15px;font-weight:bold;cursor:pointer;
+ box-shadow:0 6px 18px #b52a6833
 }
-
-h1 {
-  font-size: clamp(34px, 8vw, 58px);
-  margin: 12px 0;
-  text-shadow: 0 3px 12px #ff9dc6;
+#message{
+ display:none;max-width:520px;margin:20px auto 0;padding:20px;
+ border-radius:20px;background:#fff8fc;font-size:18px;line-height:1.9;
+ animation:appear .6s ease
 }
-
-p {
-  line-height: 1.8;
-}
-
-.subtitle {
-  max-width: 520px;
-  margin: auto;
-  padding: 0 12px;
-  font-size: 17px;
-}
-
-.garden {
-  width: min(95%, 650px);
-  margin: 20px auto;
-  padding: 15px 8px 25px;
-  border: 1px solid white;
-  border-radius: 28px;
-  background: #ffffffa8;
-  box-shadow: 0 15px 45px #c54c7a25;
-}
-
-svg {
-  width: 100%;
-  height: auto;
-}
-
-.bloom {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: bloom 2.5s ease-in-out infinite alternate;
-}
-
-@keyframes bloom {
-  from { transform: scale(.88) rotate(-5deg); }
-  to { transform: scale(1.08) rotate(5deg); }
-}
-
-button {
-  border: 0;
-  border-radius: 30px;
-  padding: 14px 21px;
-  margin: 8px 4px;
-  font-size: 15px;
-  font-weight: bold;
-  color: white;
-  background: linear-gradient(135deg, #ff5899, #b82b69);
-  box-shadow: 0 6px 18px #c3317940;
-  cursor: pointer;
-}
-
-button:active {
-  transform: scale(.97);
-}
-
-#surprise {
-  display: none;
-  padding: 18px;
-  margin: 18px auto 0;
-  max-width: 510px;
-  border-radius: 20px;
-  background: #fff7fb;
-  line-height: 1.9;
-  font-size: 18px;
-  animation: appear .7s ease;
-}
-
-@keyframes appear {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.petal {
-  position: fixed;
-  top: -40px;
-  z-index: 5;
-  pointer-events: none;
-  animation: fall linear forwards;
-}
-
-@keyframes fall {
-  to {
-    transform: translate(var(--drift), 110vh) rotate(650deg);
-    opacity: .2;
-  }
-}
-
-footer {
-  padding: 20px;
-  font-size: 12px;
-  color: #a34d70;
-}
+@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.petal{position:fixed;top:-40px;z-index:5;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translate(var(--drift),110vh) rotate(650deg);opacity:.15}}
+footer{padding:15px;font-size:12px}
 </style>
 </head>
 
 <body>
-
 <header>
-  <div>✧ A LITTLE MAGIC FOR THE HEART ✧</div>
-  <h1>A Little Garden<br>of Love 💗</h1>
-  <p class="subtitle">
-    Some feelings are too beautiful for words,
-    so let these flowers say them for you. 🌷
-  </p>
+ <div>✧ A LITTLE MAGIC FOR THE HEART ✧</div>
+ <h1>A Garden<br>Made of Love 💗</h1>
+ <p class="subtitle">Some feelings are too beautiful for words. Let these flowers tell the story. 🌹</p>
 </header>
 
 <section class="garden">
-  <h2>Where Every Flower Holds a Feeling 🌹</h2>
-  <p>Made of little blooms and a little bit of magic ✨</p>
+ <h2>A Heart That Blooms Forever 🌷</h2>
+ <p>Every little flower carries a beautiful feeling ✨</p>
 
-  <svg viewBox="0 0 600 500" aria-label="A heart-shaped garden full of flowers">
-    <defs>
-      <clipPath id="heart">
-        <path d="M300 425
-        C250 380 80 270 80 160
-        C80 65 205 45 300 145
-        C395 45 520 65 520 160
-        C520 270 350 380 300 425 Z"/>
-      </clipPath>
-    </defs>
+ <svg viewBox="0 0 600 510" role="img" aria-label="A large heart filled with colorful flowers">
+  <defs>
+   <path id="heartShape" d="M300 440 C260 400 65 275 65 155 C65 45 205 35 300 140 C395 35 535 45 535 155 C535 275 340 400 300 440 Z"/>
+   <clipPath id="heartClip"><use href="#heartShape"/></clipPath>
+   <linearGradient id="heartColor" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#ff8fbd"/>
+    <stop offset="100%" stop-color="#ffdbea"/>
+   </linearGradient>
+  </defs>
 
-    <path d="M300 425
-    C250 380 80 270 80 160
-    C80 65 205 45 300 145
-    C395 45 520 65 520 160
-    C520 270 350 380 300 425 Z"
-    fill="#ffbad6" stroke="#ff6ca7" stroke-width="3"/>
+  <use href="#heartShape" fill="url(#heartColor)" stroke="#ff4f91" stroke-width="4"/>
+  <g id="flowerField" clip-path="url(#heartClip)"></g>
+  <use href="#heartShape" fill="none" stroke="#fff5fa" stroke-width="2" stroke-dasharray="6 8"/>
+  <text x="300" y="490" text-anchor="middle" fill="#a42a63" font-size="20">♡ Love in Every Bloom ♡</text>
+ </svg>
 
-    <g id="flowers" clip-path="url(#heart)"></g>
+ <button id="openBtn">Open Your Flower Surprise 💌</button>
+ <button id="rainBtn">Let It Rain Flowers 🌸</button>
 
-    <text x="300" y="475" text-anchor="middle"
-    font-size="20" fill="#a72c64">♡ Always in Bloom ♡</text>
-  </svg>
-
-  <button id="open">Open Your Flower Surprise 💌</button>
-  <button id="rain">Let Flowers Fall 🌸</button>
-
-  <div id="surprise">
-    <strong>For a heart that makes life more beautiful 💖</strong>
-    <br><br>
-    May your days be filled with gentle smiles,
-    your little moments become precious memories,
-    and your hands always find a reason to hold on
-    to the happiness you have found.
-    <br><br>
-    Like flowers beneath the morning sun,
-    may your beautiful story keep growing—
-    softly, patiently, and endlessly. 🌹✨
-    <br><br>
-    <span style="font-size:25px">💗 🌷 💐 🌹 💗</span>
-  </div>
+ <div id="message">
+  <strong>A little message for you 💖</strong><br><br>
+  May your smiles grow brighter with every sunrise,
+  may your sweetest moments turn into beautiful memories,
+  and may your hearts always find warmth in each other.<br><br>
+  Like flowers reaching for the morning sun,
+  may your happiness keep growing—today, tomorrow,
+  and through all the seasons of life. 🌹<br><br>
+  💗 🌷 💐 🌸 🌻 💗
+ </div>
 </section>
 
-<footer>
-  A little garden, a little love, a beautiful feeling. 🌸
-</footer>
+<footer>Made with flowers, warmth, and a little magic ✨</footer>
 
 <script>
-const field = document.getElementById("flowers");
+const field=document.getElementById("flowerField");
+const ns="http://www.w3.org/2000/svg";
+const colors=["#ff267f","#ff6da8","#ffc857","#fff0a6","#bd83db",
+"#ff5252","#fff9fc","#f58dbb","#ffad42","#e65c99","#a4d878"];
 
-const colors = [
-  "#ff4388", "#ff8fbd", "#ffd166",
-  "#fff0a6", "#bd8be8", "#ff6b6b",
-  "#ffffff", "#f7a8d8", "#ffb347",
-  "#d66ba0", "#ff739d"
+let seed=2471;
+function rand(){seed=(seed*16807)%2147483647;return(seed-1)/2147483646}
+
+function insideHeart(x,y){
+ const X=(x-300)/235;
+ const Y=(y-225)/205;
+ return Math.pow(X*X+Y*Y-1,3)-X*X*Y*Y*Y<=0;
+}
+
+for(let y=65;y<425;y+=17){
+ for(let x=65;x<540;x+=17){
+  const px=x+(rand()-.5)*9;
+  const py=y+(rand()-.5)*9;
+  if(!insideHeart(px,py)||rand()<.08)continue;
+
+  const flower=document.createElementNS(ns,"g");
+  flower.setAttribute("class","flower");
+  flower.style.animationDelay=(-rand()*3)+"s";
+  flower.setAttribute("transform",`translate(${px} ${py}) scale(${.48+rand()*.42})`);
+
+  const n=5+Math.floor(rand()*4);
+  const color=colors[Math.floor(rand()*colors.length)];
+
+  for(let i=0;i<n;i++){
+   const angle=i*360/n;
+   const petal=document.createElementNS(ns,"ellipse");
+   petal.setAttribute("cx","0");
+   petal.setAttribute("cy","-5");
+   petal.setAttribute("rx","3.7");
+   petal.setAttribute("ry","6");
+   petal.setAttribute("fill",color);
+   petal.setAttribute("transform",`rotate(${angle})`);
+   petal.setAttribute("stroke","#ffffffaa");
+   petal.setAttribute("stroke-width",".5");
+   flower.appendChild(petal);
+  }
+
+  const center=document.createElementNS(ns,"circle");
+  center.setAttribute("r","3.5");
+  center.setAttribute("fill","#ffdf68");
+  flower.appendChild(center);
+  field.appendChild(flower);
+ }
+}
+
+const bigFlowers=[
+ [120,130,"🌹"],[480,130,"🌷"],[130,255,"🌼"],
+ [470,255,"🌺"],[205,355,"🌸"],[395,355,"🌻"],
+ [300,100,"💐"],[300,290,"🌷"]
 ];
 
-const emojis = ["🌹","🌷","🌸","🌺","🌼","🌻","💮","🪷"];
-
-let seed = 2026;
-
-function random() {
-  seed = (seed * 16807) % 2147483647;
-  return (seed - 1) / 2147483646;
-}
-
-for (let y = 75; y < 390; y += 20) {
-  for (let x = 90; x < 515; x += 20) {
-
-    const px = x + random() * 10;
-    const py = y + random() * 10;
-
-    const X = (px - 300) / 215;
-    const Y = (py - 225) / 190;
-
-    const inside =
-      Math.pow(X * X + Y * Y - 1, 3)
-      - X * X * Y * Y * Y < 0;
-
-    if (!inside || random() < 0.12) continue;
-
-    const flower = document.createElementNS(
-      "http://www.w3.org/2000/svg", "g"
-    );
-
-    flower.setAttribute("class", "bloom");
-    flower.setAttribute("transform",
-      `translate(${px} ${py}) scale(${0.55 + random() * 0.4})`
-    );
-
-    const petals = 5 + Math.floor(random() * 3);
-    const color = colors[Math.floor(random() * colors.length)];
-
-    for (let i = 0; i < petals; i++) {
-      const angle = (Math.PI * 2 * i) / petals;
-      const petal = document.createElementNS(
-        "http://www.w3.org/2000/svg", "ellipse"
-      );
-
-      petal.setAttribute("cx", Math.cos(angle) * 5);
-      petal.setAttribute("cy", Math.sin(angle) * 5);
-      petal.setAttribute("rx", "3.5");
-      petal.setAttribute("ry", "6");
-      petal.setAttribute("fill", color);
-      petal.setAttribute("transform",
-        `rotate(${i * 360 / petals})`
-      );
-
-      flower.appendChild(petal);
-    }
-
-    const center = document.createElementNS(
-      "http://www.w3.org/2000/svg", "circle"
-    );
-    center.setAttribute("r", "3.5");
-    center.setAttribute("fill", "#ffdc66");
-    flower.appendChild(center);
-
-    field.appendChild(flower);
-  }
-}
-
-// Add some larger flowers inside the heart.
-const bigFlowers = [
-  [145,145,"🌹"], [455,145,"🌷"],
-  [170,270,"🌻"], [430,270,"🌺"],
-  [230,350,"🌸"], [370,350,"🌼"],
-  [300,115,"💐"]
-];
-
-bigFlowers.forEach(([x,y,emoji], i) => {
-  const t = document.createElementNS(
-    "http://www.w3.org/2000/svg", "text"
-  );
-  t.setAttribute("x", x);
-  t.setAttribute("y", y);
-  t.setAttribute("text-anchor", "middle");
-  t.setAttribute("font-size", i === 6 ? "29" : "25");
-  t.textContent = emoji;
-  t.style.animation = `bloom ${2 + i * .2}s ease-in-out infinite alternate`;
-  field.appendChild(t);
+bigFlowers.forEach(([x,y,e])=>{
+ const t=document.createElementNS(ns,"text");
+ t.setAttribute("x",x);t.setAttribute("y",y);
+ t.setAttribute("text-anchor","middle");t.setAttribute("font-size","27");
+ t.textContent=e;
+ t.style.animation="bloom 2s ease-in-out infinite alternate";
+ field.appendChild(t);
 });
 
-document.getElementById("open").addEventListener("click", () => {
-  const box = document.getElementById("surprise");
-  const isOpen = box.style.display === "block";
-
-  box.style.display = isOpen ? "none" : "block";
-  document.getElementById("open").textContent =
-    isOpen ? "Open Your Flower Surprise 💌" : "Close Surprise 💗";
-
-  if (!isOpen) makeRain(35);
-});
-
-document.getElementById("rain").addEventListener("click", () => {
-  makeRain(70);
-});
-
-function makeRain(amount) {
-  for (let i = 0; i < amount; i++) {
-    const p = document.createElement("span");
-    p.className = "petal";
-    p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-
-    p.style.left = Math.random() * 100 + "vw";
-    p.style.fontSize = (18 + Math.random() * 22) + "px";
-    p.style.animationDuration = (4 + Math.random() * 5) + "s";
-    p.style.animationDelay = Math.random() * 1.5 + "s";
-    p.style.setProperty("--drift", (Math.random() - .5) * 200 + "px");
-
-    document.body.appendChild(p);
-    p.addEventListener("animationend", () => p.remove());
-  }
+function flowerRain(amount){
+ const emojis=["🌹","🌷","🌸","🌺","🌼","🌻","💮","💗","✨"];
+ for(let i=0;i<amount;i++){
+  const p=document.createElement("span");
+  p.className="petal";
+  p.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+  p.style.left=Math.random()*100+"vw";
+  p.style.fontSize=(18+Math.random()*22)+"px";
+  p.style.animationDuration=(4+Math.random()*5)+"s";
+  p.style.animationDelay=Math.random()*1.5+"s";
+  p.style.setProperty("--drift",((Math.random()-.5)*220)+"px");
+  document.body.appendChild(p);
+  p.addEventListener("animationend",()=>p.remove(),{once:true});
+ }
 }
+
+const message=document.getElementById("message");
+document.getElementById("openBtn").addEventListener("click",()=>{
+ const open=message.style.display==="block";
+ message.style.display=open?"none":"block";
+ document.getElementById("openBtn").textContent=
+ open?"Open Your Flower Surprise 💌":"Close Surprise 💗";
+ if(!open)flowerRain(35);
+});
+document.getElementById("rainBtn").addEventListener("click",()=>flowerRain(70));
 </script>
-
 </body>
 </html>
